@@ -1,1 +1,12 @@
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore python cache files
+__pycache__/
+
+# Ignore databse files
+*.sqlite3
+
+# Ignore nohup logs
 nohup.out
