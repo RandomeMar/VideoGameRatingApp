@@ -1,8 +1,0 @@
-{
-  "typeCheckingMode": "basic",
-  "disableOrganizeImports": true,
-  "reportMissingImports": false,
-  "reportMissingTypeStubs": false,
-  "reportUnusedVariable": false,
-  "exclude": ["**"]
-}
