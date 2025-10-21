@@ -122,3 +122,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# RAWG API stuff
+
+RAWG_API_KEY = "849b97a03cb04649a27a482ac716bb86"
+RAWG_API_URL = url = "https://api.rawg.io/api/games"
