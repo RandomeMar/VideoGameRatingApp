@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Game Rater{% endblock %}
+
+{% block content %}
+<h1>{{ game.name }} | {{ game.release_date|date:"Y" }}</h1>
+<img src="{{ game.img_url }}">
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <form action="{% url 'search_games' %}" method="get">
+        <input type="search" name="q">
+        <button type="submit">Search</button>
+    </form>
+{% endblock %}
