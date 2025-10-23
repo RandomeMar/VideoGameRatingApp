@@ -57,7 +57,10 @@ def create_game(rawg_id: int):
     if response.status_code == 200:
         # All good
         data: dict = response.json()
-        game = Game(name=data["name"], rawg_id=data["id"], release_date=data.get("released"), img_url=data.get("background_image"))
+        release_date = data.get("released")
+        if release_date:
+            release_date = datetime.strptime(release_date, "%Y-%m-%d")
+        game = Game(name=data["name"], rawg_id=data["id"], release_date=release_date, img_url=data.get("background_image"))
         game.save()
         return game
     else:
