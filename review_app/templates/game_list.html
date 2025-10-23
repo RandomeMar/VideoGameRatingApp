@@ -4,17 +4,18 @@
 
 {% block content %}
 
-<h1>Results for {{query}}</h1>
+    <h1>Results for {{query}}</h1>
 
-<ul>
-    {% for game in games %}
-        <li>
-            <a href="{% url 'load_game_page' game.id %}?name={{ game.name|urlencode }}&released={{ game.released }}&img_url={{ game.img_url|urlencode }}">
-            {{ game.name }} | {{ game.released|slice:"4"}}
-            </a>
-        </li>
-    {% empty %}
-        <li>No games matched {{query}}</li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for game in games %}
+            <!--TODO: Change this to use a form with Post-->
+            <li>
+                <a href="{% url 'load_game_page' game.id %}">
+                {{ game.name }} | {{ game.released|slice:"4"}}
+                </a>
+            </li>
+        {% empty %}
+            <li>No games matched {{query}}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

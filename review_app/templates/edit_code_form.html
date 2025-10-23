@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Game Rater{% endblock %}
+
+{% block content %}
+
+    <h2>{{ error }}</h2>
+    <h2>Please enter the edit code provided</h2>
+    <form action="{% url 'auth_edit_code' review_id %}" method="post">
+        {% csrf_token %}
+        
+        <input type="text" name="edit_code">
+        <button type="submit" name="action" value="edit">Edit</button>
+        <button type="submit" name="action" value="delete">Delete</button>
+    </form>
+{% endblock %}

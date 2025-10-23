@@ -3,6 +3,28 @@
 {% block title %}Game Rater{% endblock %}
 
 {% block content %}
-<h1>{{ game.name }} | {{ game.release_date|date:"Y" }}</h1>
-<img src="{{ game.img_url }}">
+    <h1>{{ game.name }}</h1>
+    <h2>Released: {{ game.release_date|date:"F j, Y" }}</h2>
+    <img src="{{ game.img_url }}" alt="Error with {{ game.img_url }}">
+
+    <h2>Reviews</h2>
+    <div>
+        <h3>Create a new review</h3>
+        <form action="{% url 'load_review_form' game.id %}" method="get">
+            <button type="submit">+</button>
+        </form>
+    </div>
+    {% for review in reviews %}
+        <div>
+            <h2>{{ review.title }}</h2>
+            <h3>Posted by {{ review.nickname }} | {{review.post_date}}</h3>
+            <h3>{{ review.rating }}/10</h3>
+            <p>{{ review.review_text }}</p>
+            <form action="{% url 'auth_edit_code' review.id %}" method="get">
+                <button type="submit">edit</button>
+            </form>
+        </div>
+    {% empty %}
+        <h2>No reviews yet.</h2>
+    {% endfor %}
 {% endblock %}
