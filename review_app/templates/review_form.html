@@ -4,19 +4,25 @@
 
 {% block content %}
     <h1>Review for {{ game.name }}</h1>
-    <form action="{% url 'create_review' game.id %}" method="post">
+    <form action="{% url 'create_review' game.id %}" method="post" class="review_form">
         {% csrf_token %}
 
         {% if review %}
             <input type="hidden" name="review_id" value="{{ review.id }}">
         {% endif %}
-        <label for="nickname">Nickname</label>
-        <input type="text" name="nickname" id="nickname" value="{{ review.nickname }}">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" value="{{ review.title }}">
-        <label for="rating">Rating</label>
-        <input type="number" name="rating" id="rating" min="1" max="10" value="{{ review.rating }}">
-        <textarea name="review_text" id="review_text" placeholder="Write your review here.">{{ review.review_text }}</textarea>
+        <div class="review_form_input">
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname" value="{{ review.nickname }}">
+        </div>
+        <div class="review_form_input">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value="{{ review.title }}" required>
+        </div>
+        <div class="review_form_input">
+            <label for="rating">Rating</label>
+            <input type="number" name="rating" id="rating" min="1" max="10" value="{{ review.rating }}" required>
+        </div>
+        <textarea name="review_text" id="review_text" placeholder="Write your review here." required>{{ review.review_text }}</textarea>
         <button type="submit">Post</button>
     </form>
 {% endblock %}

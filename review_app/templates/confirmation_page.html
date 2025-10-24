@@ -6,5 +6,5 @@
     <h1>Your review of {{ review.game.name }} has been posted!</h1>
     <h2>Use the provided edit code to edit/delete this review.</h2>
     <h2>Edit Code: {{ review.edit_code }}</h2>
-    <a href="{% url 'load_game_page' review.game.rawg_id %}">Return to {{ review.game.name }}</a>
+    <a href="{% url 'load_game_page' review.game.rawg_id %}" class="btn">Return to {{ review.game.name }}</a>
 {% endblock %}

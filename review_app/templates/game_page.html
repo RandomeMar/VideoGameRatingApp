@@ -8,14 +8,14 @@
     <img src="{{ game.img_url }}" alt="Error with {{ game.img_url }}">
 
     <h2>Reviews</h2>
-    <div>
-        <h3>Create a new review</h3>
+    <div class="new_review_div">
+        <label for="new_button">Create a new review</label>
         <form action="{% url 'load_review_form' game.id %}" method="get">
-            <button type="submit">+</button>
+            <button type="submit" id="new_button">+</button>
         </form>
     </div>
     {% for review in reviews %}
-        <div>
+        <div class="review">
             <h2>{{ review.title }}</h2>
             <h3>Posted by {{ review.nickname }} | {{review.post_date}}</h3>
             <h3>{{ review.rating }}/10</h3>

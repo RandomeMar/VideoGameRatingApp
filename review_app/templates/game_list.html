@@ -10,7 +10,7 @@
         {% for game in games %}
             <!--TODO: Change this to use a form with Post-->
             <li>
-                <a href="{% url 'load_game_page' game.id %}">
+                <a href="{% url 'load_game_page' game.id %}" class="btn">
                 {{ game.name }} | {{ game.released|slice:"4"}}
                 </a>
             </li>

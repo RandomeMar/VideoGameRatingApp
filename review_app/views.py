@@ -89,7 +89,8 @@ def create_review(request: HttpRequest, game_id: int):
     if not review:
         game = get_object_or_404(Game, id=game_id)
         review = Review(game=game)
-      
+    
+    
     review.review_text = review_text
     review.rating = int(rating)
     review.title = title
